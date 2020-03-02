@@ -1,0 +1,7 @@
+
+//:NOTES:
+cannot find locate main class using eclipse IDE with run configurations.
+https://stackoverflow.com/questions/11106858/cant-specify-main-class-in-eclipse
+
+NextInt() problem:
+https://www.geeksforgeeks.org/why-is-scanner-skipping-nextline-after-use-of-other-next-functions/
