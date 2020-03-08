@@ -1,3 +1,7 @@
+:: THIS______FILE: <REPO_ROOT>/PRJ/import_test/RUN_SCRIPT.CMD
+:: PASTEBIN_TITLE: WCC_IMPORT_TEST:RUN_SCRIPT.CMD
+:: PASTEBIN___URL: https://pastebin.com/TCYsSYu7
+
 :: Some Bash (.cmd) basics:
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 echo OFF  REM Echo is annoying, output is usually useless clutter.
@@ -9,13 +13,15 @@ echo OFF  REM Echo is annoying, output is usually useless clutter.
 		  REM      People like to use it because REM is kind of cluttery.
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:: SET lib_folder=%CD%../../LIB   
 
 :: make some variables so command calls are shorter.
 :: lib_folder : Folder where my utility class is.
 ::  sp_folder : sourcepath folder
 ::  cp_folder : classpath folder (yes, same as lib_folder here)
 ::  TODO: fix lib_folder to be less hard coded and relative to script directory maybe?
-SET lib_folder=C:/Users/cis/Desktop/JM_WCC/LIB
+::SET lib_folder=C:/Users/cis/Desktop/JM_WCC/LIB
+SET lib_folder=%CD%/../../LIB
 SET  sp_folder=%lib_folder%/*.java
 SET  cp_folder=%lib_folder%
 echo "%sp_folder%"
@@ -31,11 +37,11 @@ javac -cp %cp_folder% -verbose  -d %CD% Main.java
 :: we run "Main.class" by typing "java Main"
 :: The "java" command assumes "Main" means "Main.class"
 :: In other words, the extension is assumed to be ".class"
-java Main.java
+::java Main.java  <<error: class found on application class path: Main
+  java Main 
 
 PAUSE
 
 :: REM :: Also See:
 :: REM :: javac -sourcepath %sp_folder% -verbose  -d %CD% Main.java
 :: REM :: https://stackoverflow.com/questions/4764768/java-how-can-i-compile-an-entire-directory-structure-of-code
-
